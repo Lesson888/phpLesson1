@@ -1,7 +1,7 @@
 <?php
 
-echo '<pre>';
-var_dump($_REQUEST);
+$message = false;
+
 
 if (isset($_REQUEST['name']) and isset ($_REQUEST['phone'])) {
 
@@ -12,7 +12,8 @@ if (isset($_REQUEST['name']) and isset ($_REQUEST['phone'])) {
         '. Ваш номер. ' . $phone . PHP_EOL;
     file_put_contents('./contacts.txt', $row,FILE_APPEND);
 
-    echo 'Спасибо! Мы с вами свяжемся.';
+
+    $message = 'Спасибо! Мы с вами свяжемся.';
 } else {
     echo 'Не указаны параметры';
 }
