@@ -17,6 +17,7 @@ if (isset($_REQUEST['name']) and isset ($_REQUEST['phone'])) {
 } else {
     echo 'Не указаны параметры';
 }
+?>
 
 <!doctype html>
 <html lang="en">
