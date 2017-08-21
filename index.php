@@ -10,13 +10,13 @@ if (isset($_REQUEST['name']) and isset ($_REQUEST['phone'])) {
 
     $row = 'Здравствуйте, ' . $name .
         '. Ваш номер. ' . $phone . PHP_EOL;
-    file_put_contents('./contacts.txt', $row,FILE_APPEND);
+
+    file_put_contents('./contacts.txt', $row, FILE_APPEND);
 
 
     $message = 'Спасибо! Мы с вами свяжемся.';
-} else {
-    echo 'Не указаны параметры';
 }
+
 ?>
 
 <!doctype html>
@@ -30,7 +30,7 @@ if (isset($_REQUEST['name']) and isset ($_REQUEST['phone'])) {
 <?php if ($message) : ?>
     <?= $message ?>
     <?php else: ?>
-<form action="form.php">
+<form action="index.php" method="post">
     <p>Представьтесь</p>
     <input type="text" name="name">
     <p>Укажите ваш номер</p>
