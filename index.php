@@ -31,8 +31,11 @@ if (isset($_REQUEST['name']) and isset ($_REQUEST['phone'])) {
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet"href"<div class="/CSS/bootstrap.min.css"></div>
 </head>
 <body>
+
+<div class="container"></div>
 
 <?php if ($message) : ?>
     <?= $message ?>
@@ -46,6 +49,11 @@ if (isset($_REQUEST['name']) and isset ($_REQUEST['phone'])) {
 </form>
 <?php endif; ?>
 
+<?php if($message) : ?>
+<?=$message ?>
+<?php else: ?>
+
+<?php endif: ?>
 
 </body>
 </html>
