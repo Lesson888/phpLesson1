@@ -31,11 +31,19 @@ if (isset($_REQUEST['name']) and isset ($_REQUEST['phone'])) {
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet"href"<div class="/CSS/bootstrap.min.css"></div>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
 </head>
 <body>
 
-<div class="container"></div>
+<div class="container">
+    <h3>Форма обратной связи</h3>
+
+    <?php if ($message) : ?>
+
+
+
+</div>
+
 
 <?php if ($message) : ?>
     <?= $message ?>
