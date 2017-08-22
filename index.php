@@ -1,7 +1,7 @@
 <?php
 
 $message = false;
-
+$error = false;//для ошибок;
 echo $test;
 
 if (isset($_REQUEST['name']) and isset ($_REQUEST['phone'])) {
