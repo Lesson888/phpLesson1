@@ -2,6 +2,7 @@
 
 $message = false;
 
+echo $test;
 
 if (isset($_REQUEST['name']) and isset ($_REQUEST['phone'])) {
 
