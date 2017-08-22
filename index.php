@@ -9,8 +9,14 @@ if (isset($_REQUEST['name']) and isset ($_REQUEST['phone'])) {
     $name = $_REQUEST ['name'];
     $phone = $_REQUEST ['phone'];
 
+    if(empty($name)|| empty($phone) {
+        echo 'Заполните поля';
+        else }
+
     $row = 'Здравствуйте, ' . $name .
         '. Ваш номер. ' . $phone . PHP_EOL;
+
+    // PHP_EOL = 'ln';
 
     file_put_contents('./contacts.txt', $row, FILE_APPEND);
 
