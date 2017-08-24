@@ -1,67 +1,78 @@
 <?php
 
-$message = false;
-$error = false;//для ошибок;
-echo $test;
+$message = false;//
+
 
 if (isset($_REQUEST['name']) and isset ($_REQUEST['phone'])) {
 
-    $name = $_REQUEST ['name'];
+    $name = $_REQUEST ['name'];//Для сокращения
     $phone = $_REQUEST ['phone'];
 
-    if(empty($name)|| empty($phone) {
-        echo 'Заполните поля';
-        else }
 
-    $row = 'Здравствуйте, ' . $name .
-        '. Ваш номер. ' . $phone . PHP_EOL;
+    if (empty($name)||empty($phone)){
+        echo "Заполните поля";
+    }else{
 
-    // PHP_EOL = 'ln';
+        $row = 'Здравствуйте, ' . $name .
+            '. Ваш номер. ' . $phone . PHP_EOL;
 
-    file_put_contents('./contacts.txt', $row, FILE_APPEND);
+        //PHP_EOL='\n'
 
+        file_put_contacts('./contacts.txt', $row, FILE_APPEND);
+
+        $row (FILE_APPEND);
 
     $message = 'Спасибо! Мы с вами свяжемся.';
+}
+
 }
 
 ?>
 
 <!doctype html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css bootstrap.min.css">
+
 </head>
 <body>
-
-<div class="container">
-    <h3>Форма обратной связи</h3>
-
-    <?php if ($message) : ?>
-
-
-
-</div>
-
 
 <?php if ($message) : ?>
     <?= $message ?>
     <?php else: ?>
-<form action="index.php" method="post">
-    <p>Представьтесь</p>
-    <input type="text" name="name">
-    <p>Укажите ваш номер</p>
-   <input type="text" name="phone">
-    <button type="submit">отправить</button>
+<form class="form-horizontal" role="form" action="index.php" method="post">
+    <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">Имя</label>
+        <div class="col-sm-10">
+            <input
+            type="text"
+            name="name"
+            class="form-control"
+            placeholder="имя">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="phone" class="col-sm-2 control-label">Номер телефона</label>
+        <div class="col-sm-10">
+            <input
+                type="text"
+                name="phone"
+                class="form-control"
+                placeholder="Введите текст">
+        </div>
+    </div>
+<div class="col-sm-offset-2 col-sm-10">
+    <button type="submit" class="btn btn-default">отправить</button>
+</div>
+
 </form>
+<form>
+
 <?php endif; ?>
 
-<?php if($message) : ?>
-<?=$message ?>
-<?php else: ?>
-
-<?php endif: ?>
 
 </body>
 </html>
