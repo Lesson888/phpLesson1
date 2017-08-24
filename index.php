@@ -18,9 +18,8 @@ if (isset($_REQUEST['name']) and isset ($_REQUEST['phone'])) {
 
         //PHP_EOL='\n'
 
-        file_put_contacts('./contacts.txt', $row, FILE_APPEND);
+        file_put_contents('./css/contacts.txt', $row, FILE_APPEND);
 
-        $row (FILE_APPEND);
 
     $message = 'Спасибо! Мы с вами свяжемся.';
 }
@@ -34,7 +33,7 @@ if (isset($_REQUEST['name']) and isset ($_REQUEST['phone'])) {
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="./css bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
 </head>
 <body>
