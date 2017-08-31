@@ -72,6 +72,27 @@ if (isset($_REQUEST['name']) and isset ($_REQUEST['phone'])) {
 
 <?php endif; ?>
 
+    <form action="index.php" method="POST">
+        <input type="text" name="">
+        <input type="text" name="lastname">
+        <input type="text" name="email">
+        <input type="text" name="phone">
+        <input type="text" name="phone" placeholder="Телефон">
+        <p>О себе</p>
+        <textarea name="about" id="about" cols="30" rows="10"></textarea>
+        <p>Пол</p>
+        <input type="radio" name="gender" value="male">
+        <input type="radio" name="gender" value="female">
+        <p>Возраст</p>
+        <input type="namber" name="age">
+        <p>Хобби</p>
+        <select name="hobby" id="hobby">
+            <option value="sport">Спорт</option>
+            <option value="photos">Фотографии</option>
+            <option value="programming">Программирование</option>
+        </select>
+        <input type="submit" value="Отправить">
+    </form>
 
 </body>
 </html>
