@@ -114,11 +114,26 @@ function emailCorrect($email) {
         }
     }
 
+    function ageCorrect ($age) {
+    if ($age >= 18 && $age <= 99) {
+        print_r('Возраст корректный');
+    } else {
+        print_r('Возраст некорректный');
+    }
+
+    }
 
 
-    function
+    function aboutCorrect ($about) {
+    if (strlen($about) < 10 || strlen($about) > 30) {
+        print_r('О себе слишком короткое или слишком длинное');
+    } else {
+        print_r('О себе корректное');
+    }
+    }
 
 if(isset($_POST['submit'])) {
+    print_r(1);
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $email = $_POST['email'];
@@ -130,17 +145,12 @@ if(isset($_POST['submit'])) {
   if (fieldIsset($firstname)) {
         print_r('Имя задано');
     }
-    $emailCorrect($email);
-    $ageCorrect ($age);
+    emailCorrect($email);
+    ageCorrect ($age);
     if (fieldIsset($about)) {
-        
+        aboutCorrect($about);
     }
 
-    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "E-mail ($email) указан верно.\n";
-    } else {
-        echo 'E-mail введен неверно';
-    }
 }
 
 
