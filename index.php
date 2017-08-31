@@ -73,16 +73,15 @@ if (isset($_REQUEST['name']) and isset ($_REQUEST['phone'])) {
 <?php endif; ?>
 
     <form action="index.php" method="POST">
-        <input type="text" name="">
-        <input type="text" name="lastname">
-        <input type="text" name="email">
-        <input type="text" name="phone">
-        <input type="text" name="phone" placeholder="Телефон">
+        <input type="text" name="firstname" placeholder="Имя" required>
+        <input type="text" name="lastname" placeholder="Фамилия" required>
+        <input type="text" name="email" placeholder="E-mail" required>
+        <input type="text" name="phone" placeholder="Телефон" required>
         <p>О себе</p>
         <textarea name="about" id="about" cols="30" rows="10"></textarea>
         <p>Пол</p>
-        <input type="radio" name="gender" value="male">
-        <input type="radio" name="gender" value="female">
+        <input type="radio" name="gender" value="male">Мужской
+        <input type="radio" name="gender" value="female">Женский
         <p>Возраст</p>
         <input type="namber" name="age">
         <p>Хобби</p>
@@ -91,8 +90,62 @@ if (isset($_REQUEST['name']) and isset ($_REQUEST['phone'])) {
             <option value="photos">Фотографии</option>
             <option value="programming">Программирование</option>
         </select>
-        <input type="submit" value="Отправить">
+        <input type="submit" value="Отправить" name="submit">
     </form>
 
 </body>
 </html>
+
+<?php
+
+function fieldIsset($field) {
+    if(isset($fieldi) && !empty($field)){
+    return true;
+}
+return false;
+}
+
+function emailCorrect($email) {
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            echo "E-mail ($email)указан верно .\n";
+        } else {
+            echo 'E-mail введен неверно';
+
+        }
+    }
+
+
+
+    function
+
+if(isset($_POST['submit'])) {
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $about = $_POST['about'];
+    $gender = $_POST['gender'];
+    $age = $_POST['age'];
+    $hobby = $_POST['hobby'];
+  if (fieldIsset($firstname)) {
+        print_r('Имя задано');
+    }
+    $emailCorrect($email);
+    $ageCorrect ($age);
+    if (fieldIsset($about)) {
+        
+    }
+
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "E-mail ($email) указан верно.\n";
+    } else {
+        echo 'E-mail введен неверно';
+    }
+}
+
+
+
+
+
+
+
