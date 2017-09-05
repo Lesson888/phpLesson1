@@ -1,20 +1,31 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
+<?php
+$array = array (12, -3.25, "String", true);
+echo $array[1];
+$array[1] = "String";
+$array[2] = 4.25;
+echo "<br />".$array[1]."<br />".$array[2];
+$array[] = "New Element";
+echo "<br />".$array[4]."<hr />";
 
-<a href="homework.php"></a>
-<p align="сenter">Номер 2</p>
-<ul>
-    <ul>Здравствуйте</ul>
-    <li>Номер1</li>
-    <li>Номер2</li>
-    <li>Номер 3</li>
-    <ul>Досвиданья</ul>
-</ul>
 
-</body>
-</html>
+for ($i = 0; $i < count($array); $i++) {
+    echo "Элемент массива с индексом $i = ".$array[$i]."<br />";
+}
+
+
+$list = array ("age" => 12, "name" => "Alex", "schoolBoy" => true);
+$list ["age"] = 10;
+$summa = 0;
+echo "<hr />".getAverage(array ("first" => 12, "sec" => 45, "third" => 23, "forth" => 55));
+
+
+
+
+function getAverage ($array) {
+    foreach ($array as $key => $value) {
+        $summa += $value;
+        echo $key."<br />";
+    }
+    return $summa / count ($array);
+}
+?>
