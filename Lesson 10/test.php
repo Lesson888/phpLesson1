@@ -9,67 +9,51 @@ $result = '';
 $steps = [
     [
         'id' => 1,
-        'question' => 'У велосипеда два колеса?',
+        'question' => 'Сколько колес у велосипеда?',
         'answers' => [
             [
-                'text' => 'Да',
+                'text' => '2',
                 'function' => 'next',
                 'next_step' => 2,
             ],
             [
-                'text' => 'Нет',
-                'function' => 'endGame',
+                'text' => '8',
+                'function' => 'Неверно',
+                'next_step' => 2,
             ],
         ],
     ],
     [
         'id' => 2,
-        'question' => 'Цепь движущая сила велосипеда?',
+        'question' => 'Что является движущей силой велосипеда?',
         'answers' => [
             [
-                'text' => 'Да',
+                'text' => 'Цепь',
                 'function' => 'next',
                 'next_step' => 3,
             ],
             [
-                'text' => 'Нет',
-                'function' => 'endGame',
+                'text' => 'Руль',
+                'function' => 'Неверно',
+                'next_step' => 3,
             ]
         ],
     ],
     [
         'id' => 3,
-        'question' => 'Какая часть велосипеда подлежит смазке?',
+        'question' => 'Бывают ли скоростные велосипеды?',
         'answers' => [
             [
-                'text' => 'Цепь',
-                'function' => 'next',
-                'next_step' => 4,
+                'text' => 'Да',
+                'function' => 'Прошли',
             ],
             [
-                'text' => 'Звездочка',
-                'function' => 'endGame',
+                'text' => 'Нет',
+                'function' => 'Не прошли',
             ]
         ],
     ],
-    [
-        'id' => 4,
-        'question' => 'Сколько колес в обычном велосипеде?',
-        'answers' => [
-            [
-                'text' => '8',
-                'function' => 'endGame',
-            ],
-            [
-                'text' => '2',
-                'function' => 'win',
-            ]
-        ],
-    ],
-
-
 ];
-
 
 function findNextStep($id, $steps) {
     $step = null;
@@ -95,9 +79,9 @@ if (isset($_POST['submit'])) {
         $step = findNextStep($answer['next_step'], $steps);
         $question = generateQuestion($step);
         $answers = generateAnswers($step);
-    } else if ($answer['function'] === 'endGame') {
+    } else if ($answer['function'] === 'Не прошли') {
         $result = 'Вы проиграли';
-    } else if ($answer['function'] === 'win') {
+    } else if ($answer['function'] === 'Прошли') {
         $result = 'Вы победили';
     }
 } else {
@@ -105,6 +89,3 @@ if (isset($_POST['submit'])) {
     $question = generateQuestion($step);
     $answers = generateAnswers($step);
 
-}
-
-?>
