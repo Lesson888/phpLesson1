@@ -4,7 +4,7 @@
 $question = '';
 $answers = [];
 $result = '';
-
+$image = '';
 
 $steps = [
     [
@@ -87,6 +87,10 @@ function generateQuestion ($step) {
 
 function generateAnswers ($step) {
     return $step['answers'];
+}
+
+function generateImage ($step) {
+    return $step['image'];
 }
 
 if (isset($_POST['submit'])) {
