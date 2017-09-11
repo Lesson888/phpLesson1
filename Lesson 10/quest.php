@@ -57,7 +57,7 @@ $steps = [
         'question' => 'Сколько колес в обычном велосипеде?',
         'answers' => [
             [
-                'text' => '8',
+                'text' => '9',
                 'function' => 'endGame',
             ],
             [
