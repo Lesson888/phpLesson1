@@ -10,10 +10,10 @@ $steps = [
     [
         'id' => 1,
         'question' => 'У велосипеда два колеса?',
+        'image' => '10.png',
         'answers' => [
             [
                 'text' => 'Да',
-                'image' => '10.png',
                 'function' => 'next',
                 'next_step' => 2,
             ],
@@ -26,6 +26,7 @@ $steps = [
     [
         'id' => 2,
         'question' => 'Цепь движущая сила велосипеда?',
+        'image' => '6.png',
         'answers' => [
             [
                 'text' => 'Да',

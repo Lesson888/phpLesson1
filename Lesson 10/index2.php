@@ -20,15 +20,16 @@ require './quest.php'
 <form action="index2.php" method="post">
 <div>
     <?= $question ?>
+    <img src="<?= $image ?>" />
 </div>
 <div>
    <?php foreach ($answers as $answer) :?>
     <input type="radio"
            name="answer"
            value=<?= json_encode($answer) ?>
-           <img src="<?= $answer['image'] ?>" />
        >
        <?= $answer['text'] ?>
+
     <?php endforeach ; ?>
 </div>
 <input type="submit" name="submit" value="отправить">
