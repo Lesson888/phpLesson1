@@ -13,6 +13,7 @@ $steps = [
         'answers' => [
             [
                 'text' => 'Да',
+                'image' => '10.png',
                 'function' => 'next',
                 'next_step' => 2,
             ],
@@ -99,6 +100,7 @@ if (isset($_POST['submit'])) {
         $step = findNextStep($answer['next_step'], $steps);
         $question = generateQuestion($step);
         $answers = generateAnswers($step);
+        $image = generateImage($step);
     } else if ($answer['function'] === 'endGame') {
         $result = 'Вы проиграли';
     } else if ($answer['function'] === 'win') {
@@ -108,6 +110,7 @@ if (isset($_POST['submit'])) {
     $step = findNextStep(1, $steps);
     $question = generateQuestion($step);
     $answers = generateAnswers($step);
+    $image = generateImage($step);
 
 }
 
