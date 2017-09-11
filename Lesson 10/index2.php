@@ -35,6 +35,6 @@ require './quest.php'
     <?= $result ?>
 </div>
 </form>
-<img src="10.png">
+<img src="<?= $answer['image'] ?>" />
 </body>
 </html>
