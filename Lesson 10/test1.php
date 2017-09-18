@@ -1,7 +1,7 @@
 <?php
 
 
-delete(3);
+//delete(1);
 
 
 if (isset($_POST['submit'])) {
@@ -9,33 +9,28 @@ if (isset($_POST['submit'])) {
     echo 'Товар добавлен';
 }
 
+if (isset($_POST['delete'])) {
+    delete($_POST['id'] );
+    echo 'Товар добавлен';
+}
 
-function delete ($id)
+// Удаление записи
+function delete($id)
 {
     $elements = getAll();
     $row = $id - 1;
-
-    unset($elements[$row]);
-
+    unset($elements[$row]); // Удаляет запись из полученного массива записей
     $rows = [];
     foreach ($elements as $element) {
+        // Склеиваем элементы внутри каждой записи
         $rows[] = implode("\t", $element);
     }
-    $rows = implode ("\t", $rows);
-
-
-    if (! strlen($rows)) $rows = "\t" . PHP_EOL;
+    $rows = implode(PHP_EOL, $rows); // Склеиваем все записи
     $result = file_put_contents('./products.csv', $rows);
-
-
-    $row = implode("\t", $elements) . PHP_EOL;
-    $result = file_put_contents('./products.csv', $row);
-    if ($result) {
-        return true;
-    } else {
-        return false;
-    }
+    if ($result) return true;
+    else return false;
 }
+
 
 // Получение одной записи
 function get($id)
@@ -49,19 +44,19 @@ function get($id)
     }
 }
 
-// Получение всех записей
-function getAll( filename: './products.csv');
+function getAll()
 {
     $elements = [];
-    $rows = file()
-    foreach (file('./products.csv') as $row)
+    $file = file_get_contents('./products.csv');
+    $rows = explode(PHP_EOL, $file);
+    foreach ($rows as $row)
     {
         $element = explode("\t", $row);
         $elements[] = $element;
     }
-
     return $elements;
 }
+
 
 // Добавление в базу
 function add($data)
