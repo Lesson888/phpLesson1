@@ -14,12 +14,40 @@ if (isset($_POST['delete'])) {
     echo 'Товар добавлен';
 }
 
+if (isset($_POST['edit'])) {
+    edit($_POST['id'], $_POST);
+    echo 'Товар изменен';
+}
+
 // Удаление записи
 function delete($id)
 {
     $elements = getAll();
     $row = $id - 1;
     unset($elements[$row]); // Удаляет запись из полученного массива записей
+    $rows = [];
+    foreach ($elements as $element) {
+        // Склеиваем элементы внутри каждой записи
+        $rows[] = implode("\t", $element);
+    }
+    $rows = implode(PHP_EOL, $rows); // Склеиваем все записи
+    $result = file_put_contents('./products.csv', $rows);
+    if ($result) return true;
+    else return false;
+}
+
+
+// Редактирование записи
+function edit($id, $data)
+{
+    $title = $data['title'];
+    $price = $data['price'];
+
+    $elements = getAll();
+    $row = $id - 1;
+
+    $elements[$row] = [$title, $price];
+
     $rows = [];
     foreach ($elements as $element) {
         // Склеиваем элементы внутри каждой записи

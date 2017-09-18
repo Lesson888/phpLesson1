@@ -19,7 +19,10 @@ require_once './test1.php';
             <td><?php echo $product[0] ?? '' ?></td>
             <td><?php echo $product[1] ?? '' ?></td>
             <td>
-                <button> <a href="<?php echo './view.php?id=' . ($key + 1) ?>">Редактировать</a></button>
+                <button> <a href="<?php echo './view.php?id=' . ($key + 1) ?>">Обзор</a></button>
+            </td>
+            <td>
+                <button><a href="<?php echo './edit.php?id=' . ($key + 1) ?>">Редактирование</a></button>
             </td>
             <td>
                 <form action="/Lesson%2010/test2.php" method="post">
