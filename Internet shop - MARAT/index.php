@@ -18,7 +18,7 @@ require_once './products.php'; //подключили файл с скрипто
 </head>
 
 <body>
-
+<h1 align="center">Интернет магазин "Под ключ"</h1>
 <div class="album text-muted">
     <div class="container">
 
@@ -35,6 +35,7 @@ require_once './products.php'; //подключили файл с скрипто
 <!--            --><?php //endforeach; ?>
             <?php foreach ($products_new as $product) : ?>
             <div class="card">
+
                 <h6>Название: <?= $product['name'] ?></h6>
                 <span>Цена: <?= $product['price'] ?></span>
                 <p>Описание: <?= $product['description'] ?></p>
